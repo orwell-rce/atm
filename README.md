@@ -1,9 +1,9 @@
 #ATM
 
-## Package.
+## Package
 The main Namespace is com.progress.demo.rce.atm
 
-## Events.
+## Events
 * **NewATM**(integer id). It defines a new ATM machine thay will recieve movements made by the simulator.
 * **NewSim**(integer id, float limX, float limY). It defines a new ATM operations simulator.
 * **Activity**(integer id, integer card, float amount, string currency). Pay event that includes the terminal id where it was made, a random card number, a random amount and the pay currency.
