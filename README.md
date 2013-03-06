@@ -1,11 +1,11 @@
-#GPS
+#ATM
 
 ## Package.
-The main Namespace is com.progress.demo.rce.gps
+The main Namespace is com.progress.demo.rce.atm
 
 ## Events.
 
-* **NewPOI**(integer id, string name, location pos). It register a new Point Of Interest with its id, name and its location .
+* **NewATM**(integer id). It defines a new ATM machine thay will recieve movements made by the simulator.
 * **NewSim**(integer id, float limX, float limY). It defines a new random-walk simulator for the id-client; limX represents the maximum x-axis value and analogous for the limY.
 * **Position**(integer id, location pos). This is the actual client position.
 * **Stream**(string channel, integer idChannel, integer idClient, sequence<string> extra). The output event that has the information about the channel, its id, the client id and the extra information.
