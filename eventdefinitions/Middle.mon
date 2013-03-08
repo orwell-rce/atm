@@ -5,7 +5,7 @@ event NewSim{
 }
 
 event Transaction{
-	integer id;
+	string id;
 	integer card;
 	float amount;
 	string currency;
