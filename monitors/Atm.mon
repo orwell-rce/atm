@@ -1,0 +1,32 @@
+package com.progress.demo.rce.atm;
+using com.progress.demo.rce.atm.input.NewAtm;
+using com.progress.demo.rce.atm.middle.Transaction;
+using com.progress.demo.rce.streams.Stream;
+
+monitor mainAtm {
+	
+	NewAtm atm;
+	Transaction transaction;
+	dictionary<string, boolean> atmDB;
+	
+	action onload() {
+		on all NewAtm():atm {
+			if not atmDB.hasKey(atm.id) then {
+				atmDB.add(atm.id, true);
+				spawn Atm(atm);
+			}
+		}
+	}
+	
+	action Atm(NewAtm atm) {
+		log "Monitor for ATM " + atm.id;
+		
+		on all Transaction(id = atm.id):transaction{
+			sequence<string> extra := new sequence<string>;
+			extra.append(transaction.amount.toString());
+			extra.append(transaction.currency);
+			route Stream("ATM", atm.id, transaction.card, extra);
+			emit Stream("ATM", atm.id, transaction.card, extra);
+		}
+	}
+}

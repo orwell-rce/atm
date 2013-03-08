@@ -1,0 +1,24 @@
+package com.progress.demo.rce.atm.simulator;
+using com.progress.demo.rce.atm.middle.Transaction;
+using com.progress.demo.rce.atm.middle.NewSim;
+
+monitor simulator {
+	NewSim sim;
+	
+	action onload() {
+		on all NewSim():sim {
+			spawn simulate(sim.id);
+		}
+	}
+	
+	action simulate(string id) {
+		on all wait(3.0) {
+			float amount := 999.99;
+			string idTrans := id;
+			integer card := integer.rand(999999);
+			float ra := amount.rand();
+			route Transaction(idTrans, card, ra, "MXP");
+		}
+	}
+	
+}
