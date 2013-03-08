@@ -1,11 +1,11 @@
 package com.progress.demo.rce.atm.middle;
 
 event NewSim{
-	string id;
+	integer id;
 }
 
 event Transaction{
-	string id;
+	integer id;
 	integer card;
 	float amount;
 	string currency;

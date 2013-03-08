@@ -11,10 +11,10 @@ monitor simulator {
 		}
 	}
 	
-	action simulate(string id) {
+	action simulate(integer id) {
 		on all wait(3.0) {
 			float amount := 999.99;
-			string idTrans := id;
+			integer idTrans := id;
 			integer card := integer.rand(999999);
 			float ra := amount.rand();
 			route Transaction(idTrans, card, ra, "MXP");

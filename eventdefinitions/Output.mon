@@ -2,7 +2,7 @@ package com.progress.demo.rce.streams;
 
 event Stream{
 	string channel;
-	string idChannel;
+	integer idChannel;
 	integer idClient;
 	sequence<string> extra;
 }

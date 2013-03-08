@@ -7,7 +7,7 @@ monitor mainAtm {
 	
 	NewAtm atm;
 	Transaction transaction;
-	dictionary<string, boolean> atmDB;
+	dictionary<integer, boolean> atmDB;
 	
 	action onload() {
 		on all NewAtm():atm {
@@ -19,7 +19,7 @@ monitor mainAtm {
 	}
 	
 	action Atm(NewAtm atm) {
-		log "Monitor for ATM " + atm.id;
+		log "Monitor for ATM " + atm.id.toString();
 		
 		on all Transaction(id = atm.id):transaction{
 			sequence<string> extra := new sequence<string>;

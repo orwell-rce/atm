@@ -1,5 +1,5 @@
 package com.progress.demo.rce.atm.input;
 
 event NewAtm {
-	string id;
+	integer id;
 }
