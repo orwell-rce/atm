@@ -5,6 +5,8 @@ using com.progress.demo.rce.streams.Stream;
 
 monitor mainAtm {
 	
+	context c := context("input");
+	
 	NewAtm atm;
 	Transaction transaction;
 	dictionary<string, boolean> atmDB;
